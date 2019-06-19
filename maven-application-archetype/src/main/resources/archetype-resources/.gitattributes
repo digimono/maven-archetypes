@@ -1,0 +1,74 @@
+## GITATTRIBUTES FOR WEB PROJECTS
+#
+# These settings are for any web project.
+#
+# Details per file setting:
+#   text    These files should be normalized (i.e. convert CRLF to LF).
+#   binary  These files are binary and should be left untouched.
+#
+# Note that binary is a macro for -text -diff.
+######################################################################
+
+## AUTO-DETECT - Handle line endings automatically for files detected
+## as text and leave all files detected as binary untouched.
+## This will handle all files NOT defined below.
+* text=auto
+
+## Scripts
+mvnw            text eol=lf
+*.sh            text eol=lf
+*.ps1           text eol=crlf
+*.cmd           text eol=crlf
+*.bat           text eol=crlf
+
+## Documentation
+license         text eol=lf
+LICENSE         text eol=lf
+
+## Linters
+.csslintrc      text eol=lf
+.eslintrc       text eol=lf
+.jscsrc         text eol=lf
+.jshintrc       text eol=lf
+.jshintignore   text eol=lf
+.stylelintrc    text eol=lf
+
+## Configs
+*.bowerrc       text eol=lf
+browserslist    text eol=lf
+*.cnf           text eol=lf
+*.conf          text eol=lf
+*.config        text eol=lf
+.editorconfig   text eol=lf
+.gitattributes  text eol=lf
+.gitconfig      text eol=lf
+.gitignore      text eol=lf
+.htaccess       text eol=lf
+*.npmignore     text eol=lf
+*.yaml          text eol=lf
+*.yml           text eol=lf
+Makefile        text eol=lf
+makefile        text eol=lf
+
+## Docker
+Dockerfile text eol=lf
+
+## Graphics
+*.gif           binary
+*.ico           binary
+*.jpg           binary
+*.jpeg          binary
+*.png           binary
+*.svg           text eol=lf
+
+## Fonts
+*.eot           binary
+*.ttf           binary
+*.otf           binary
+*.woff          binary
+*.woff2         binary
+
+## Lock files
+package-lock.json   -diff
+yarn.lock           -diff
+composer.lock       -diff

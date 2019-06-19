@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT}
+
+spring:
+  profiles:
+    active: ${activeProfile}
+
+  aop:
+    proxy-target-class: true
+
+management:
+  server:
+    add-application-context-header: false
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - prometheus
+      base-path: /actuator
+      cors:
+        allowed-origins: '*'
+        allowed-methods: GET, POST
+  endpoint:
+    health:
+      show-details: always

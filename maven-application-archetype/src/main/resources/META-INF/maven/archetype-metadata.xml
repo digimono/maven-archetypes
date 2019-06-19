@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+  name="vanilla-application-archetype">
+
+  <requiredProperties>
+    <requiredProperty key="version">
+      <defaultValue>1.0.0-SNAPSHOT</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+    </fileSet>
+
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+    </fileSet>
+
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>src/assembly</directory>
+    </fileSet>
+
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>src/scripts</directory>
+    </fileSet>
+
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory>src/main/profiles</directory>
+    </fileSet>
+
+    <fileSet filtered="false" encoding="UTF-8">
+      <directory/>
+      <includes>
+        <include>.gitattributes</include>
+        <include>.gitignore</include>
+        <include>.editorconfig</include>
+        <include>.jabbarc</include>
+        <include>README.md</include>
+        <include>.mvn/**</include>
+        <include>mvnw</include>
+        <include>mvnw.cmd</include>
+        <include>codequality/**</include>
+        <include>scripts/**</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+
+</archetype-descriptor>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FindBugsFilter>
+  <!-- All bugs in test classes, except for JUnit-specific bugs -->
+  <!--<Match>-->
+  <!--<Class name="~.*\.*Test"/>-->
+  <!--<Not>-->
+  <!--<Bug code="IJU"/>-->
+  <!--</Not>-->
+  <!--</Match>-->
+  <Match>
+    <Bug pattern="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD"/>
+  </Match>
+  <Match>
+    <Bug pattern="DM_BOXED_PRIMITIVE_FOR_PARSING"/>
+  </Match>
+  <Match>
+    <Bug pattern="BX_BOXING_IMMEDIATELY_UNBOXED_TO_PERFORM_COERCION"/>
+  </Match>
+  <Match>
+    <!-- May expose internal representation by returning reference to mutable object -->
+    <Bug pattern="EI_EXPOSE_REP"/>
+  </Match>
+  <Match>
+    <!-- May expose internal representation by incorporating reference to mutable object -->
+    <Bug pattern="EI_EXPOSE_REP2"/>
+  </Match>
+  <Match>
+    <!-- Class defines compareTo(...) and uses Object.equals() -->
+    <Bug pattern="EQ_COMPARETO_USE_OBJECT_EQUALS"/>
+  </Match>
+</FindBugsFilter>
