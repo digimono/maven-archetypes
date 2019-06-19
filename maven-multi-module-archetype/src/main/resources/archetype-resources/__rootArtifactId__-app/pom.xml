@@ -3,21 +3,18 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>maven-super-pom</artifactId>
-    <groupId>io.github.openfrog</groupId>
-    <version>0.0.1</version>
-    <relativePath/>
+    <groupId>${groupId}</groupId>
+    <artifactId>${rootArtifactId}</artifactId>
+    <version>${revision}</version>
+    <relativePath>..</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>${groupId}</groupId>
   <artifactId>${artifactId}</artifactId>
   <packaging>jar</packaging>
-  <version>${version}</version>
 
   <properties>
-    <main.basedir>${project.basedir}</main.basedir>
-
+    <main.basedir>${project.basedir}/..</main.basedir>
     <assembly.skipAssembly>false</assembly.skipAssembly>
     <spring-boot.repackage.skip>false</spring-boot.repackage.skip>
 
@@ -55,6 +52,14 @@
   </build>
 
   <dependencies>
+    <!-- Project dependencies -->
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>${rootArtifactId}-service</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <!-- Third dependencies -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter</artifactId>

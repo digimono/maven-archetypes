@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <properties resource="META-INF/mybatis/generator.properties"/>
+  <context id="MySQLTables"
+    targetRuntime="org.mybatis.generator.codegen.mybatis3.MyIntrospectedTableMyBatis3Impl">
+
+    <property name="javaFileEncoding" value="UTF-8"/>
+    <property name="addGWTInterface" value="false"/>
+    <property name="suppressJavaInterface" value="false"/>
+
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+    <!--<plugin type="org.mybatis.generator.plugins.GuavaStyleToStringPlugin"/>-->
+
+    <commentGenerator type="org.mybatis.generator.internal.MyCommentGenerator">
+      <property name="suppressAllComments" value="${suppress_all_comments}"/>
+      <property name="addRemarkComments" value="${add_remark_comments}"/>
+    </commentGenerator>
+
+    <jdbcConnection
+      driverClass="${jdbc.driverClass}"
+      connectionURL="${jdbc.url}"
+      userId="${jdbc.username}"
+      password="${jdbc.password}">
+    </jdbcConnection>
+
+    <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverImpl">
+      <property name="forceBigDecimals" value="false"/>
+      <property name="useJava8Time" value="${jdk.use_jdk8_time}"/>
+      <property name="useJSR310Types" value="${use_jsr310_types}"/>
+    </javaTypeResolver>
+
+    <javaModelGenerator
+      targetProject="${domain.target.project}"
+      targetPackage="${domain.package}">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+      <property name="constructorBased" value="false"/>
+    </javaModelGenerator>
+
+    <sqlMapGenerator
+      targetProject="${sql.mapper.target.project}"
+      targetPackage="${sql.mapper.package}">
+      <property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+
+    <javaClientGenerator
+      targetProject="${java.mapper.target.project}"
+      targetPackage="${java.mapper.package}"
+      type="XMLMAPPER">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+
+    <table tableName="user" domainObjectName="User"
+      enableSelectByExample="false"
+      enableCountByExample="false"
+      enableDeleteByExample="false"
+      enableUpdateByExample="false">
+      <property name="useActualColumnNames" value="false"/>
+      <property name="selectAllOrderByClause" value="id DESC"/>
+
+      <!--JDBC / SqlServer / MySql-->
+      <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+    </table>
+  </context>
+</generatorConfiguration>

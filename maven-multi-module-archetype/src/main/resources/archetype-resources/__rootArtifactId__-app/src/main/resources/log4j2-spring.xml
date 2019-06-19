@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" strict="true" monitorInterval="300">
+    <Properties>
+        <Property name="SPRING_APP_NAME">${prop.app.name}</Property>
+
+        <Property name="LOG_DIR_MINOR">${prop.log.dir}</Property>
+        <Property name="LOG_DIR">${env:LOG_BASE:-${LOG_DIR_MINOR}}</Property>
+        <Property name="DEBUG_LOG_FILE">${SPRING_APP_NAME}-debug</Property>
+        <Property name="INFO_LOG_FILE">${SPRING_APP_NAME}-info</Property>
+        <Property name="ERROR_LOG_FILE">${SPRING_APP_NAME}-error</Property>
+        <Property name="DEBUG_FILE_PATTERN">
+            ${LOG_DIR}/$${date:yyyy-MM}/${DEBUG_LOG_FILE}-%d{MM-dd-yyyy}-%i.log.gz
+        </Property>
+        <Property name="INFO_FILE_PATTERN">
+            ${LOG_DIR}/$${date:yyyy-MM}/${INFO_LOG_FILE}-%d{MM-dd-yyyy}-%i.log.gz
+        </Property>
+        <Property name="ERROR_FILE_PATTERN">
+            ${LOG_DIR}/$${date:yyyy-MM}/${ERROR_LOG_FILE}-%d{MM-dd-yyyy}-%i.log.gz
+        </Property>
+        <Property name="FILE_LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [${SPRING_APP_NAME},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}] ${PID:--} [%thread] %class{36} %line %method - %msg%n
+        </Property>
+        <Property name="STDOUT_LOG_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} %blue{[${SPRING_APP_NAME},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}]} %magenta{${sys:PID:--}} [%thread] %cyan{%class{36}} %line %method - %msg%n
+        </Property>
+        <Property name="EVERY_FILE_SIZE">50M</Property>
+        <Property name="LOG_LEVEL">${prop.log.level}</Property>
+        <Property name="log4j2.isThreadContextMapInheritable">true</Property>
+    </Properties>
+
+    <Appenders>
+        <Appender type="Console" name="STDOUT">
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--<Layout type="PatternLayout" pattern="${STDOUT_LOG_PATTERN}"/>-->
+            <Layout type="PatternLayout">
+                <Pattern>${STDOUT_LOG_PATTERN}</Pattern>
+            </Layout>
+        </Appender>
+
+        <Appender type="RollingFile" name="DEBUG_LOG" fileName="${LOG_DIR}/${DEBUG_LOG_FILE}.log"
+                  filePattern="${DEBUG_FILE_PATTERN}">
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+            </Filters>
+            <Layout type="PatternLayout">
+                <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            </Layout>
+            <Policies>
+                <!--<OnStartupTriggeringPolicy/>-->
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${EVERY_FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </Appender>
+
+        <Appender type="RollingFile" name="INFO_LOG" fileName="${LOG_DIR}/${INFO_LOG_FILE}.log"
+                  filePattern="${INFO_FILE_PATTERN}">
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Layout type="PatternLayout">
+                <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            </Layout>
+            <Policies>
+                <!--<OnStartupTriggeringPolicy/>-->
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${EVERY_FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </Appender>
+
+        <Appender type="RollingFile" name="ERROR_LOG" fileName="${LOG_DIR}/${ERROR_LOG_FILE}.log"
+                  filePattern="${ERROR_FILE_PATTERN}">
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Layout type="PatternLayout">
+                <Pattern>${FILE_LOG_PATTERN}</Pattern>
+            </Layout>
+            <Policies>
+                <!--<OnStartupTriggeringPolicy/>-->
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="${EVERY_FILE_SIZE}"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </Appender>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.apache.ibatis.logging.jdbc" level="${LOG_LEVEL}">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Logger name="com.alibaba.druid.filter.logging" level="${LOG_LEVEL}">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Logger name="java.sql.Connection" level="${LOG_LEVEL}">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Logger name="java.sql.Statement" level="${LOG_LEVEL}">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Logger name="java.sql.PreparedStatement" level="${LOG_LEVEL}">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+
+        <Root level="${LOG_LEVEL}">
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="DEBUG_LOG"/>
+            <AppenderRef ref="INFO_LOG"/>
+            <AppenderRef ref="ERROR_LOG"/>
+        </Root>
+    </Loggers>
+</Configuration>
