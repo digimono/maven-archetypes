@@ -7,6 +7,26 @@
 
 ## Application archetype
 
+```bash
+mvn archetype:generate \
+    -DarchetypeGroupId=io.github.openfrog \
+    -DarchetypeArtifactId=maven-application-archetype \
+    -DarchetypeVersion=${version} \
+    -DarchetypeCatalog=local \
+    -DinteractiveMode=false \    
+    -DgroupId=io.github.openfrog \
+    -DartifactId=sample
+```
+
 ## Multi-module archetype
 
-
+```bash
+mvn archetype:generate \
+    -DarchetypeGroupId=io.github.openfrog \
+    -DarchetypeArtifactId=maven-multi-module-archetype \
+    -DarchetypeVersion=${version} \
+    -DarchetypeCatalog=local \
+    -DinteractiveMode=false \    
+    -DgroupId=io.github.openfrog \
+    -DartifactId=multi-module-sample
+```
