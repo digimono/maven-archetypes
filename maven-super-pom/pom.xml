@@ -64,7 +64,7 @@
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
 
     <!-- Maven Plugin Dependency Versions -->
-    <checkstyle.version>8.21</checkstyle.version>
+    <checkstyle.version>8.22</checkstyle.version>
 
     <!-- https://spotbugs.readthedocs.io/en/stable/index.html -->
     <spotbugs.version>3.1.12</spotbugs.version>
@@ -96,9 +96,9 @@
     <exclude-dependencies-group-ids/>
 
     <!-- Dependencies version -->
-    <spring.version>5.1.7.RELEASE</spring.version>
-    <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
-    <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+    <spring.version>5.1.8.RELEASE</spring.version>
+    <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+    <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     <spring-retry.version>1.2.4.RELEASE</spring-retry.version>
     <jackson.version>2.9.9</jackson.version>
     <hikaricp.version>3.2.0</hikaricp.version>
