@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>maven-super-pom</artifactId>
-    <groupId>io.github.openfrog</groupId>
-    <version>0.0.1</version>
+    <groupId>io.github.digimono</groupId>
+    <version>0.0.2</version>
     <relativePath/>
   </parent>
   <modelVersion>4.0.0</modelVersion>

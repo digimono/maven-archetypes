@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <artifactId>maven-archetypes</artifactId>
-    <groupId>io.github.openfrog</groupId>
+    <groupId>io.github.digimono</groupId>
     <version>${revision}</version>
     <relativePath>..</relativePath>
   </parent>

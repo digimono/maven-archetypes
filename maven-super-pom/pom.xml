@@ -4,14 +4,14 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.openfrog</groupId>
+  <groupId>io.github.digimono</groupId>
   <artifactId>maven-super-pom</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.2-SNAPSHOT</version>
+  <revision>0.0.3-SNAPSHOT</revision>
 
   <name>${project.artifactId}</name>
   <description>Top-level parent super POM for all projects</description>
-  <url>https://github.com/openfrog/maven-archetypes</url>
+  <url>https://github.com/digimono/maven-archetypes</url>
 
   <inceptionYear>2019</inceptionYear>
 
@@ -68,7 +68,7 @@
 
     <!-- https://spotbugs.readthedocs.io/en/stable/index.html -->
     <spotbugs.version>3.1.12</spotbugs.version>
-    <pmd.version>6.15.0</pmd.version>
+    <pmd.version>6.16.0</pmd.version>
     <alibaba.p3c.version>2.0.0</alibaba.p3c.version>
 
     <assembly.dir>${project.basedir}</assembly.dir>
@@ -132,7 +132,7 @@
     <mybatis-spring-boot-starter.version>2.0.1</mybatis-spring-boot-starter.version>
     <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
     <guava.version>28.0-jre</guava.version>
-    <jjwt.version>0.9.1</jjwt.version>
+    <jjwt.version>0.10.6</jjwt.version>
     <typetools.version>0.6.1</typetools.version>
     <okhttp.version>3.14.2</okhttp.version>
     <joda-time.version>2.10.2</joda-time.version>
@@ -140,6 +140,7 @@
     <jodd.version>5.0.13</jodd.version>
     <servlet-api.version>4.0.1</servlet-api.version>
     <vavr.version>0.10.0</vavr.version>
+    <bouncycastle.version>1.60</bouncycastle.version>
   </properties>
 
   <build>
@@ -745,8 +746,29 @@
       </dependency>
       <dependency>
         <groupId>io.jsonwebtoken</groupId>
-        <artifactId>jjwt</artifactId>
+        <artifactId>jjwt-api</artifactId>
         <version>${jjwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-impl</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt-jackson</artifactId>
+        <version>${jjwt.version}</version>
+      </dependency>
+      <!-- Uncomment this next dependency if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms: -->
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
+        <version>${bouncycastle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcpkix-jdk15on</artifactId>
+        <version>${bouncycastle.version}</version>
       </dependency>
       <dependency>
         <groupId>net.jodah</groupId>
@@ -838,25 +860,25 @@
 
   <developers>
     <developer>
-      <id>openfrog</id>
+      <id>digimono</id>
       <name>yangyanju</name>
       <email>yanjuyang@outlook.com</email>
-      <url>https://github.com/openfrog</url>
+      <url>https://github.com/digimono</url>
     </developer>
   </developers>
 
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
 
   <scm>
-    <connection>scm:git:https://github.com/openfrog/maven-archetypes.git</connection>
-    <developerConnection>scm:git:https://github.com/openfrog/maven-archetypes.git</developerConnection>
-    <url>https://github.com/openfrog/maven-archetypes</url>
+    <connection>scm:git:https://github.com/digimono/maven-archetypes.git</connection>
+    <developerConnection>scm:git:https://github.com/digimono/maven-archetypes.git</developerConnection>
+    <url>https://github.com/digimono/maven-archetypes</url>
     <tag>HEAD</tag>
   </scm>
 
