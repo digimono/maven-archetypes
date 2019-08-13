@@ -7,7 +7,7 @@
   <groupId>io.github.digimono</groupId>
   <artifactId>maven-super-pom</artifactId>
   <packaging>pom</packaging>
-  <revision>0.0.3-SNAPSHOT</revision>
+  <version>0.0.3-SNAPSHOT</version>
 
   <name>${project.artifactId}</name>
   <description>Top-level parent super POM for all projects</description>
@@ -19,7 +19,7 @@
     <main.basedir>${project.basedir}/..</main.basedir>
 
     <java.version>1.8</java.version>
-    <required.maven.version>3.5.0</required.maven.version>
+    <required.maven.version>3.5.4</required.maven.version>
     <required.java.version>1.8</required.java.version>
 
     <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
@@ -64,11 +64,11 @@
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
 
     <!-- Maven Plugin Dependency Versions -->
-    <checkstyle.version>8.22</checkstyle.version>
+    <checkstyle.version>8.23</checkstyle.version>
 
     <!-- https://spotbugs.readthedocs.io/en/stable/index.html -->
     <spotbugs.version>3.1.12</spotbugs.version>
-    <pmd.version>6.16.0</pmd.version>
+    <pmd.version>6.17.0</pmd.version>
     <alibaba.p3c.version>2.0.0</alibaba.p3c.version>
 
     <assembly.dir>${project.basedir}</assembly.dir>
@@ -104,12 +104,12 @@
     <hikaricp.version>3.2.0</hikaricp.version>
 
     <junit.version>4.12</junit.version>
-    <junit5.version>5.4.2</junit5.version>
-    <junit-platform.version>1.4.2</junit-platform.version>
+    <junit5.version>5.5.1</junit5.version>
+    <junit-platform.version>1.5.1</junit-platform.version>
     <apiguardian.version>1.1.0</apiguardian.version>
     <opentest4j.version>1.2.0</opentest4j.version>
 
-    <slf4j-api.version>1.7.26</slf4j-api.version>
+    <slf4j-api.version>1.7.27</slf4j-api.version>
     <log4j2.version>2.11.2</log4j2.version>
     <commons-io.version>2.6</commons-io.version>
     <commons-lang3.version>3.8.1</commons-lang3.version>
@@ -121,25 +121,25 @@
     <cglib.version>3.2.12</cglib.version>
     <javassist.version>3.25.0-GA</javassist.version>
 
-    <druid.version>1.1.17</druid.version>
-    <druid-spring-boot-starter.version>1.1.17</druid-spring-boot-starter.version>
-    <fastjson.version>1.2.58</fastjson.version>
-    <transmittable-thread-local.version>2.10.2</transmittable-thread-local.version>
-    <log4j2-ttl-thread-context-map.version>1.2.0</log4j2-ttl-thread-context-map.version>
+    <druid.version>1.1.18</druid.version>
+    <druid-spring-boot-starter.version>1.1.18</druid-spring-boot-starter.version>
+    <fastjson.version>1.2.59</fastjson.version>
+    <transmittable-thread-local.version>2.11.0</transmittable-thread-local.version>
+    <log4j2-ttl-thread-context-map.version>1.3.0</log4j2-ttl-thread-context-map.version>
     <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
-    <mybatis.version>3.5.1</mybatis.version>
+    <mybatis.version>3.5.2</mybatis.version>
     <mybatis-generator.version>1.3.7</mybatis-generator.version>
-    <mybatis-spring-boot-starter.version>2.0.1</mybatis-spring-boot-starter.version>
+    <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
     <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
     <guava.version>28.0-jre</guava.version>
-    <jjwt.version>0.10.6</jjwt.version>
+    <jjwt.version>0.10.7</jjwt.version>
     <typetools.version>0.6.1</typetools.version>
     <okhttp.version>3.14.2</okhttp.version>
-    <joda-time.version>2.10.2</joda-time.version>
+    <joda-time.version>2.10.3</joda-time.version>
     <apache-httpclient.version>4.5.9</apache-httpclient.version>
     <jodd.version>5.0.13</jodd.version>
     <servlet-api.version>4.0.1</servlet-api.version>
-    <vavr.version>0.10.0</vavr.version>
+    <vavr.version>0.10.2</vavr.version>
     <bouncycastle.version>1.60</bouncycastle.version>
   </properties>
 
