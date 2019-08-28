@@ -12,22 +12,18 @@ done
 
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-APP_HOME=$(cd ${DIR} && cd .. && pwd)
-APP_DIST_DIR=$(cd ${APP_HOME} && cd ../.. && pwd)
-
-APP_NAME="${APPLICATION_NAME}"
-APP_EXEC="${BUILD_FINAL_NAME}"
+APP_NAME="${PROP_APP_NAME}"
+APP_EXEC="${PROP_BUILD_FINAL_NAME}"
 SERVER_URL="http://localhost:${SERVER_PORT}"
 
-LOG_DIR="${prop.log.dir}"
+APP_HOME=$(cd ${DIR} && cd .. && pwd)
+APP_DIST_DIR=${APP_HOME}
+LOG_DIR="${PROP_LOG_DIR}"
 
 ENABLE_SKYWALKING="${ENABLE_APM}"
 SKYWALKING_COLLECTOR_BACKEND_SERVICE=${SKYWALKING_COLLECTOR_SERVICE}
-SKYWALKING_AGENT_SERVICE_NAME=${APPLICATION_NAME}
+SKYWALKING_AGENT_SERVICE_NAME=${PROP_APP_NAME}
 SKYWALKING_LOGGING_LEVEL=WARN
-
-[[ -z "${APP_NAME}" ]] && APP_NAME="app"
-[[ -z "${APP_EXEC}" ]] && APP_EXEC="app"
 
 APP_EXEC_DIR=${APP_HOME}/bin
 APP_EXEC_PATH=${APP_EXEC_DIR}/${APP_EXEC}
@@ -51,8 +47,7 @@ echoGreen() { echo $'\e[0;32m'"$1"$'\e[0m'; }
 echoYellow() { echo $'\e[0;33m'"$1"$'\e[0m'; }
 
 ## Adjust memory settings if necessary
-JVM_OPTS="${prop.app.java-opts}"
-[[ -z "${JVM_OPTS}" ]] && JVM_OPTS="-Xms1024m -Xmx1024m -Xss256k -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=384m -XX:NewSize=384m -XX:MaxNewSize=384m -XX:SurvivorRatio=8"
+JVM_OPTS="${PROP_APP_JAVA_OPTS}"
 
 export JAVA_OPTS="-Dsun.misc.URLClassPath.disableJarChecking=true"
 export JAVA_OPTS="$JAVA_OPTS $JVM_OPTS"

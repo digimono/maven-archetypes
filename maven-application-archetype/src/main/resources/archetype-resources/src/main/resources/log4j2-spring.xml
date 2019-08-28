@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="OFF" strict="true" monitorInterval="300">
     <Properties>
-        <Property name="SPRING_APP_NAME">${prop.app.name}</Property>
+        <Property name="SPRING_APP_NAME">${PROP_APP_NAME}</Property>
 
-        <Property name="LOG_DIR_MINOR">${prop.log.dir}</Property>
+        <Property name="LOG_DIR_MINOR">${PROP_LOG_DIR}</Property>
         <Property name="LOG_DIR">${env:LOG_BASE:-${LOG_DIR_MINOR}}</Property>
         <Property name="DEBUG_LOG_FILE">${SPRING_APP_NAME}-debug</Property>
         <Property name="INFO_LOG_FILE">${SPRING_APP_NAME}-info</Property>
@@ -24,7 +24,7 @@
             %d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} %blue{[${SPRING_APP_NAME},%X{X-B3-TraceId},%X{X-B3-SpanId},%X{X-Span-Export}]} %magenta{${sys:PID:--}} [%thread] %cyan{%class{36}} %line %method - %msg%n
         </Property>
         <Property name="EVERY_FILE_SIZE">50M</Property>
-        <Property name="LOG_LEVEL">${prop.log.level}</Property>
+        <Property name="LOG_LEVEL">${PROP_LOG_LEVEL}</Property>
         <Property name="log4j2.isThreadContextMapInheritable">true</Property>
     </Properties>
 

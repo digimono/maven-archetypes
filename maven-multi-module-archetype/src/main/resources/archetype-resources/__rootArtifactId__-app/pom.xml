@@ -22,8 +22,8 @@
 
     <!-- Shell Environment Variables -->
     <SERVER_PORT>8080</SERVER_PORT>
-    <APPLICATION_NAME>${project.artifactId}</APPLICATION_NAME>
-    <BUILD_FINAL_NAME>${project.build.finalName}</BUILD_FINAL_NAME>
+    <PROP_APP_NAME>${project.build.finalName}</PROP_APP_NAME>
+    <PROP_BUILD_FINAL_NAME>${project.build.finalName}</PROP_BUILD_FINAL_NAME>
   </properties>
 
   <build>
@@ -132,11 +132,10 @@
       <properties>
         <activeProfile>development</activeProfile>
         <activeProfileShort>dev</activeProfileShort>
-        <prop.app.name>${project.build.finalName}</prop.app.name>
-        <prop.log.dir>${main.basedir}/logs</prop.log.dir>
-        <prop.pid.dir>/var/run</prop.pid.dir>
-        <prop.log.level>INFO</prop.log.level>
-        <prop.app.java-opts>-Xms512m -Xmx512m</prop.app.java-opts>
+        <PROP_LOG_DIR>${main.basedir}/logs</PROP_LOG_DIR>
+        <PROP_PID_DIR>/var/run</PROP_PID_DIR>
+        <PROP_LOG_LEVEL>INFO</PROP_LOG_LEVEL>
+        <PROP_APP_JAVA_OPTS>-Xms512m -Xmx512m</PROP_APP_JAVA_OPTS>
       </properties>
     </profile>
     <profile>
@@ -144,11 +143,10 @@
       <properties>
         <activeProfile>test</activeProfile>
         <activeProfileShort>test</activeProfileShort>
-        <prop.app.name>${project.build.finalName}</prop.app.name>
-        <prop.log.dir>/data1/logs/${prop.app.name}</prop.log.dir>
-        <prop.pid.dir>/data1/run/${prop.app.name}</prop.pid.dir>
-        <prop.log.level>INFO</prop.log.level>
-        <prop.app.java-opts>-Xms512m -Xmx512m</prop.app.java-opts>
+        <PROP_LOG_DIR>/data1/logs/${PROP_APP_NAME}</PROP_LOG_DIR>
+        <PROP_PID_DIR>/data1/run/${PROP_APP_NAME}</PROP_PID_DIR>
+        <PROP_LOG_LEVEL>INFO</PROP_LOG_LEVEL>
+        <PROP_APP_JAVA_OPTS>-Xms512m -Xmx512m</PROP_APP_JAVA_OPTS>
       </properties>
     </profile>
     <profile>
@@ -156,11 +154,10 @@
       <properties>
         <activeProfile>production</activeProfile>
         <activeProfileShort>prod</activeProfileShort>
-        <prop.app.name>${project.build.finalName}</prop.app.name>
-        <prop.log.dir>/data1/logs/${prop.app.name}</prop.log.dir>
-        <prop.pid.dir>/data1/run/${prop.app.name}</prop.pid.dir>
-        <prop.log.level>ERROR</prop.log.level>
-        <prop.app.java-opts>-Xms1024m -Xmx1024m</prop.app.java-opts>
+        <PROP_LOG_DIR>/data1/logs/${PROP_APP_NAME}</PROP_LOG_DIR>
+        <PROP_PID_DIR>/data1/run/${PROP_APP_NAME}</PROP_PID_DIR>
+        <PROP_LOG_LEVEL>ERROR</PROP_LOG_LEVEL>
+        <PROP_APP_JAVA_OPTS>-Xms1024m -Xmx1024m</PROP_APP_JAVA_OPTS>
       </properties>
     </profile>
 
