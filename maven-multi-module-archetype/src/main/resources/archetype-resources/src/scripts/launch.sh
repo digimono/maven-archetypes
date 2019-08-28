@@ -65,7 +65,6 @@ if [[ "$ENABLE_SKYWALKING" == "true" ]] && [[ -d "$SKYWALKING_AGENT_DIR" ]]; the
     export JAVA_OPTS="$JAVA_OPTS -javaagent:$SKYWALKING_AGENT_DIR/skywalking-agent.jar"
     export JAVA_OPTS="$JAVA_OPTS -Dskywalking.agent.service_name=$SKYWALKING_AGENT_SERVICE_NAME"
     export JAVA_OPTS="$JAVA_OPTS -Dskywalking.collector.backend_service=$SKYWALKING_COLLECTOR_BACKEND_SERVICE"
-    export JAVA_OPTS="$JAVA_OPTS -Dskywalking.agent.service_name=$SKYWALKING_AGENT_SERVICE_NAME"
     export JAVA_OPTS="$JAVA_OPTS -Dskywalking.logging.level=$SKYWALKING_LOGGING_LEVEL"
 fi
 
