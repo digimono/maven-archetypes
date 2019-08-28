@@ -5,6 +5,12 @@
 
 ## Maven Super POM
 
+## Installation
+
+```bash
+mvn clean install
+```
+
 ## Application archetype
 
 ```bash
@@ -13,9 +19,9 @@ mvn archetype:generate \
     -DarchetypeArtifactId=maven-application-archetype \
     -DarchetypeVersion=${version} \
     -DarchetypeCatalog=local \
-    -DinteractiveMode=false \    
+    -DinteractiveMode=false \
     -DgroupId=io.github.digimono \
-    -DartifactId=sample
+    -DartifactId=spring-boot-scaffold
 ```
 
 ## Multi-module archetype
@@ -26,7 +32,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=maven-multi-module-archetype \
     -DarchetypeVersion=${version} \
     -DarchetypeCatalog=local \
-    -DinteractiveMode=false \    
+    -DinteractiveMode=false \
     -DgroupId=io.github.digimono \
-    -DartifactId=multi-module-sample
+    -DartifactId=spring-boot-scaffold
 ```
