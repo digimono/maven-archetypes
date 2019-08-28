@@ -25,13 +25,6 @@
         <include>mvnw.cmd</include>
       </includes>
     </fileSet>
-
-    <fileSet filtered="true" encoding="UTF-8">
-      <directory>__rootArtifactId__-super-pom</directory>
-      <includes>
-        <include>pom.xml</include>
-      </includes>
-    </fileSet>
   </fileSets>
 
   <modules>

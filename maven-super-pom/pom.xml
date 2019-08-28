@@ -91,8 +91,7 @@
       ${project.basedir}/src/main/resources/META-INF/mybatis/mybatis-generator.xml
     </mybatis.generator.config.location>
 
-    <start-class/>
-    <main-class>org.springframework.boot.loader.PropertiesLauncher</main-class>
+    <main-class/>
     <exclude-dependencies-group-ids/>
 
     <!-- Dependencies version -->

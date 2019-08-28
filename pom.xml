@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.digimono</groupId>
@@ -15,6 +15,7 @@
     <project.build.resourcesEncoding>UTF-8</project.build.resourcesEncoding>
 
     <maven.deploy.skip>true</maven.deploy.skip>
+    <archetype.test.skip>true</archetype.test.skip>
 
     <archetype-packaging.version>3.1.1</archetype-packaging.version>
     <maven-archetype-plugin.version>3.1.0</maven-archetype-plugin.version>
@@ -39,7 +40,7 @@
           <artifactId>maven-archetype-plugin</artifactId>
           <version>${maven-archetype-plugin.version}</version>
           <configuration>
-            <skip>false</skip>
+            <skip>${archetype.test.skip}</skip>
           </configuration>
         </plugin>
         <plugin>

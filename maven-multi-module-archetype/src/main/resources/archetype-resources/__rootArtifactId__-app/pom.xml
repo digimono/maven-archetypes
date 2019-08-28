@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
     <groupId>${groupId}</groupId>
     <artifactId>${rootArtifactId}</artifactId>
@@ -18,7 +18,7 @@
     <assembly.skipAssembly>false</assembly.skipAssembly>
     <spring-boot.repackage.skip>false</spring-boot.repackage.skip>
 
-    <start-class>${package}.app.Application</start-class>
+    <main-class>${package}.app.Application</main-class>
 
     <!-- Shell Environment Variables -->
     <SERVER_PORT>8080</SERVER_PORT>
@@ -164,7 +164,6 @@
       </properties>
     </profile>
 
-    <!-- Make Dist -->
     <profile>
       <id>make-dist-exec</id>
       <build>
@@ -177,7 +176,8 @@
               <configuration>
                 <skip>${spring-boot.repackage.skip}</skip>
                 <fork>true</fork>
-                <mainClass>${start-class}</mainClass>
+                <!-- org.springframework.boot.loader.PropertiesLauncher -->
+                <mainClass>${main-class}</mainClass>
                 <addResources>false</addResources>
                 <layout>ZIP</layout>
                 <executable>true</executable>
