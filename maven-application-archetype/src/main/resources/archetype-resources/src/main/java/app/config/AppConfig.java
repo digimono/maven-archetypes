@@ -10,13 +10,6 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalTimeSerializer;
 import io.micrometer.core.instrument.MeterRegistry;
-import java.nio.charset.StandardCharsets;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCustomizer;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -24,10 +17,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.http.MediaType;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
@@ -40,6 +43,16 @@ public class AppConfig implements WebMvcConfigurer {
     private static final DateTimeFormatter DEFAULT_TIME_FORMATTER = DateTimeFormatter.ofPattern(DEFAULT_TIME_FORMAT);
     private static final DateTimeFormatter DEFAULT_DATE_TIME_FORMATTER =
         DateTimeFormatter.ofPattern(DEFAULT_DATE_TIME_FORMAT);
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("forward:/home/index");
+    }
 
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {
