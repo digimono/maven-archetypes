@@ -18,7 +18,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -29,8 +30,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
@@ -54,6 +54,13 @@ public class AppConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("forward:/home/index");
     }
 
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        if (converters != null && converters.size() > 0) {
+            converters.removeIf(converter -> converter instanceof MappingJackson2XmlHttpMessageConverter);
+        }
+    }
+
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer jsonCustomizer() {
         JavaTimeModule javaTimeModule = new JavaTimeModule();
@@ -74,17 +81,17 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        Map<String, MediaType> mediaTypes = new HashMap<>(4);
-        mediaTypes.put("plain", MediaType.TEXT_PLAIN);
-
-        configurer
-            .favorPathExtension(false)
-            .favorParameter(true)
-            .parameterName("format")
-            .ignoreAcceptHeader(true)
-            .useRegisteredExtensionsOnly(true)
-            .mediaTypes(mediaTypes)
-            .defaultContentType(MediaType.APPLICATION_JSON);
+        // Map<String, MediaType> mediaTypes = new HashMap<>(4);
+        // mediaTypes.put("plain", MediaType.TEXT_PLAIN);
+        //
+        // configurer
+        //     .favorPathExtension(false)
+        //     .favorParameter(true)
+        //     .parameterName("format")
+        //     .ignoreAcceptHeader(true)
+        //     .useRegisteredExtensionsOnly(true)
+        //     .mediaTypes(mediaTypes)
+        //     .defaultContentType(MediaType.APPLICATION_JSON);
     }
 
     @Bean

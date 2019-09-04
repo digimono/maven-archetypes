@@ -29,6 +29,7 @@ public class GlobalControllerExceptionHandler {
     private static final String SERVER_ERROR_MESSAGE = "系统繁忙，请稍后重试";
     private static final String INVALID_FORMAT_MESSAGE = "参数错误，请检查参数";
     private static final String MISSING_PARAMS_MESSAGE = "缺少参数，请检查参数";
+    private static final String MEDIA_TYPE_NOT_ACCEPTABLE_MESSAGE = "Unsupported MediaType";
 
     private static final String ERROR_CODE = "code";
     private static final String ERROR_MESSAGE = "message";
@@ -38,7 +39,18 @@ public class GlobalControllerExceptionHandler {
         String requestURI = getRequestURI(request);
         LOG.error("{} {}, Msg: {}", request.getMethod(), requestURI, ex.getMessage(), ex);
 
-        return genModelAndView(HttpStatus.INTERNAL_SERVER_ERROR.value(), SERVER_ERROR_MESSAGE);
+        int code;
+        String message;
+
+        if (ex instanceof HttpMediaTypeNotAcceptableException) {
+            code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+            message = MEDIA_TYPE_NOT_ACCEPTABLE_MESSAGE;
+        } else {
+            code = HttpStatus.INTERNAL_SERVER_ERROR.value();
+            message = SERVER_ERROR_MESSAGE;
+        }
+
+        return genModelAndView(code, message);
     }
 
     @ExceptionHandler({
