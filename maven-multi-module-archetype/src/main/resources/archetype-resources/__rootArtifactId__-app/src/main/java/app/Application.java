@@ -5,6 +5,9 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
+/**
+ * @author ${author}
+ */
 @SpringBootApplication(
     scanBasePackages = {"${package}"}
 )

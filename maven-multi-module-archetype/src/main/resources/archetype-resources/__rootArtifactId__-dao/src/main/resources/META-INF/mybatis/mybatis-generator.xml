@@ -6,18 +6,44 @@
 <generatorConfiguration>
   <properties resource="META-INF/mybatis/generator.properties"/>
   <context id="MySQLTables"
-    targetRuntime="org.mybatis.generator.codegen.mybatis3.MyIntrospectedTableMyBatis3Impl">
+           targetRuntime="io.digimono.mybatis.generator.codegen.mybatis3.CustomizedIntrospectedTableMyBatis3Impl">
 
     <property name="javaFileEncoding" value="UTF-8"/>
     <property name="addGWTInterface" value="false"/>
     <property name="suppressJavaInterface" value="false"/>
 
-    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
-    <!--<plugin type="org.mybatis.generator.plugins.GuavaStyleToStringPlugin"/>-->
+    <property name="onlyGenerateInsertSelectiveMethod" value="true"/>
+    <property name="onlyGenerateUpdateSelectiveMethod" value="true"/>
 
-    <commentGenerator type="org.mybatis.generator.internal.MyCommentGenerator">
+    <property name="generatedMapperSuffix" value="Generated"/>
+    <property name="generatedMapperSubpackage" value="generated"/>
+
+    <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+    <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin"/>
+
+    <plugin type="io.digimono.mybatis.generator.plugins.SimpleStyleToStringPlugin"/>
+    <plugin type="io.digimono.mybatis.generator.plugins.FindAllPlugin"/>
+    <plugin type="io.digimono.mybatis.generator.plugins.AliasColumnListPlugin"/>
+    <plugin type="io.digimono.mybatis.generator.plugins.EmptyXMLMapperPlugin"/>
+
+    <plugin type="io.digimono.mybatis.generator.plugins.EmptyJavaMapperPlugin"/>
+    <!-- MapperAnnotationPlugin must be after EmptyJavaMapperPlugin -->
+    <plugin type="io.digimono.mybatis.generator.plugins.MapperAnnotationPlugin"/>
+
+    <!-- <plugin type="io.digimono.mybatis.generator.plugins.BaseMapperPlugin"> -->
+    <!-- <property name="targetPackage" value="com.github.vanilla.dao.base"/> -->
+    <!-- </plugin> -->
+
+    <plugin type="io.digimono.mybatis.generator.plugins.MarkAsDeletedByIdPlugin">
+      <property name="markAsDeletedColumn" value="deleted"/>
+      <property name="markAsDeletedValue" value="1"/>
+      <property name="markAsUnDeletedValue" value="0"/>
+    </plugin>
+
+    <commentGenerator type="io.digimono.mybatis.generator.internal.CustomizedCommentGeneratorImpl">
       <property name="suppressAllComments" value="${suppress_all_comments}"/>
       <property name="addRemarkComments" value="${add_remark_comments}"/>
+      <property name="suppressDate" value="true"/>
     </commentGenerator>
 
     <jdbcConnection
@@ -27,9 +53,8 @@
       password="${jdbc.password}">
     </jdbcConnection>
 
-    <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverImpl">
+    <javaTypeResolver type="io.digimono.mybatis.generator.internal.types.JavaTypeResolverImpl">
       <property name="forceBigDecimals" value="false"/>
-      <property name="useJava8Time" value="${jdk.use_jdk8_time}"/>
       <property name="useJSR310Types" value="${use_jsr310_types}"/>
     </javaTypeResolver>
 
@@ -54,13 +79,19 @@
       <property name="enableSubPackages" value="true"/>
     </javaClientGenerator>
 
-    <table tableName="user" domainObjectName="User"
-      enableSelectByExample="false"
-      enableCountByExample="false"
-      enableDeleteByExample="false"
-      enableUpdateByExample="false">
+    <table tableName="employees" domainObjectName="Employee"
+           enableSelectByExample="false"
+           enableCountByExample="false"
+           enableDeleteByExample="false"
+           enableUpdateByExample="false">
       <property name="useActualColumnNames" value="false"/>
       <property name="selectAllOrderByClause" value="id DESC"/>
+
+      <property name="markAsDeletedColumn" value="deleted"/>
+      <property name="markAsDeletedValue" value="1"/>
+      <property name="markAsUnDeletedValue" value="0"/>
+
+      <!--<property name="rootInterface" value=""/>-->
 
       <!--JDBC / SqlServer / MySql-->
       <!--<generatedKey column="id" sqlStatement="MySql" identity="true"/>-->

@@ -15,6 +15,7 @@
 
   <properties>
     <main.basedir>${project.basedir}/..</main.basedir>
+    <mybatis-codegen.version>0.0.3</mybatis-codegen.version>
   </properties>
 
   <build>
@@ -28,6 +29,11 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>io.github.digimono</groupId>
+            <artifactId>mybatis-codegen</artifactId>
+            <version>${mybatis-codegen.version}</version>
           </dependency>
           <dependency>
             <groupId>${groupId}</groupId>

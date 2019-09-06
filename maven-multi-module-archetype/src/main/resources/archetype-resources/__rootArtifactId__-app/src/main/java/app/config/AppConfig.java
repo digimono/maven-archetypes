@@ -32,6 +32,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * @author ${author}
+ */
 @Configuration
 public class AppConfig implements WebMvcConfigurer {
 
