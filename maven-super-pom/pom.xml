@@ -7,7 +7,7 @@
   <groupId>io.github.digimono</groupId>
   <artifactId>maven-super-pom</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.3</version>
 
   <name>${project.artifactId}</name>
   <description>Top-level parent super POM for all projects</description>
