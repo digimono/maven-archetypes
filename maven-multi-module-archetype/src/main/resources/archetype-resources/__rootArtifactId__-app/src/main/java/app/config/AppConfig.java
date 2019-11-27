@@ -59,7 +59,7 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
-        if (converters != null && converters.size() > 0) {
+        if (converters.size() > 0) {
             converters.removeIf(converter -> converter instanceof MappingJackson2XmlHttpMessageConverter);
         }
     }
@@ -82,33 +82,9 @@ public class AppConfig implements WebMvcConfigurer {
             .modules(javaTimeModule);
     }
 
-    @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        // Map<String, MediaType> mediaTypes = new HashMap<>(4);
-        // mediaTypes.put("plain", MediaType.TEXT_PLAIN);
-        //
-        // configurer
-        //     .favorPathExtension(false)
-        //     .favorParameter(true)
-        //     .parameterName("format")
-        //     .ignoreAcceptHeader(true)
-        //     .useRegisteredExtensionsOnly(true)
-        //     .mediaTypes(mediaTypes)
-        //     .defaultContentType(MediaType.APPLICATION_JSON);
-    }
-
     @Bean
     public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags(
         @Value("${spring.application.name}") String appName) {
         return registry -> registry.config().commonTags("application", appName);
-    }
-
-    @Bean
-    @Order(Ordered.HIGHEST_PRECEDENCE)
-    CharacterEncodingFilter characterEncodingFilter() {
-        CharacterEncodingFilter filter = new CharacterEncodingFilter();
-        filter.setEncoding(StandardCharsets.UTF_8.name());
-        filter.setForceEncoding(true);
-        return filter;
     }
 }

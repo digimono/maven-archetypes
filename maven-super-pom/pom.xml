@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.github.digimono</groupId>
   <artifactId>maven-super-pom</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.3</version>
+  <version>0.0.4-SNAPSHOT</version>
 
   <name>${project.artifactId}</name>
   <description>Top-level parent super POM for all projects</description>
@@ -35,40 +35,40 @@
     <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
 
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+    <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
     <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-    <maven-jar-plugin.version>3.1.2</maven-jar-plugin.version>
+    <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-    <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+    <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
     <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
-    <maven-javadoc-plugin.version>3.1.0</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
     <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
 
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
     <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
-    <jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
 
-    <maven-site-plugin.version>3.7.1</maven-site-plugin.version>
+    <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
     <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
     <maven-checkstyle-plugin.version>3.1.0</maven-checkstyle-plugin.version>
 
     <maven-pmd-plugin.version>3.12.0</maven-pmd-plugin.version>
-    <spotbugs-maven-plugin.version>3.1.12</spotbugs-maven-plugin.version>
+    <spotbugs-maven-plugin.version>3.1.12.2</spotbugs-maven-plugin.version>
 
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
     <build-helper-maven-plugin.version>3.0.0</build-helper-maven-plugin.version>
     <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
-    <git-commit-id-plugin.version>3.0.0</git-commit-id-plugin.version>
+    <git-commit-id-plugin.version>4.0.0</git-commit-id-plugin.version>
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
 
     <!-- Maven Plugin Dependency Versions -->
-    <checkstyle.version>8.23</checkstyle.version>
+    <checkstyle.version>8.26</checkstyle.version>
 
     <!-- https://spotbugs.readthedocs.io/en/stable/index.html -->
     <spotbugs.version>3.1.12</spotbugs.version>
-    <pmd.version>6.17.0</pmd.version>
+    <pmd.version>6.19.0</pmd.version>
     <alibaba.p3c.version>2.0.0</alibaba.p3c.version>
 
     <assembly.dir>${project.basedir}</assembly.dir>
@@ -95,51 +95,54 @@
     <exclude-dependencies-group-ids/>
 
     <!-- Dependencies version -->
-    <spring.version>5.1.8.RELEASE</spring.version>
-    <spring-boot.version>2.1.6.RELEASE</spring-boot.version>
-    <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
+    <spring.version>5.1.11.RELEASE</spring.version>
+    <spring-boot.version>2.1.10.RELEASE</spring-boot.version>
+    <spring-cloud.version>Greenwich.SR4</spring-cloud.version>
     <spring-retry.version>1.2.4.RELEASE</spring-retry.version>
-    <jackson.version>2.9.9</jackson.version>
+    <jackson.version>2.9.10</jackson.version>
+    <jackson-databind.version>2.9.10.1</jackson-databind.version>
     <hikaricp.version>3.2.0</hikaricp.version>
 
     <junit.version>4.12</junit.version>
-    <junit5.version>5.5.1</junit5.version>
-    <junit-platform.version>1.5.1</junit-platform.version>
+    <junit5.version>5.5.2</junit5.version>
+    <junit-platform.version>1.5.2</junit-platform.version>
     <apiguardian.version>1.1.0</apiguardian.version>
     <opentest4j.version>1.2.0</opentest4j.version>
 
-    <slf4j-api.version>1.7.27</slf4j-api.version>
+    <slf4j-api.version>1.7.29</slf4j-api.version>
     <log4j2.version>2.11.2</log4j2.version>
     <commons-io.version>2.6</commons-io.version>
-    <commons-lang3.version>3.8.1</commons-lang3.version>
-    <commons-codec.version>1.12</commons-codec.version>
-    <commons-collections4.version>4.3</commons-collections4.version>
-    <commons-pool2.version>2.6.1</commons-pool2.version>
+    <commons-lang3.version>3.9</commons-lang3.version>
+    <commons-codec.version>1.13</commons-codec.version>
+    <commons-collections4.version>4.4</commons-collections4.version>
+    <commons-pool2.version>2.7.0</commons-pool2.version>
 
-    <asm.version>7.1</asm.version>
-    <cglib.version>3.2.12</cglib.version>
-    <javassist.version>3.25.0-GA</javassist.version>
+    <asm.version>7.2</asm.version>
+    <cglib.version>3.3.0</cglib.version>
+    <javassist.version>3.26.0-GA</javassist.version>
 
-    <druid.version>1.1.18</druid.version>
-    <druid-spring-boot-starter.version>1.1.18</druid-spring-boot-starter.version>
-    <fastjson.version>1.2.59</fastjson.version>
+    <druid.version>1.1.21</druid.version>
+    <druid-spring-boot-starter.version>1.1.21</druid-spring-boot-starter.version>
+    <fastjson.version>1.2.62</fastjson.version>
     <transmittable-thread-local.version>2.11.0</transmittable-thread-local.version>
     <log4j2-ttl-thread-context-map.version>1.3.0</log4j2-ttl-thread-context-map.version>
-    <mysql-connector-java.version>5.1.47</mysql-connector-java.version>
-    <mybatis.version>3.5.2</mybatis.version>
-    <mybatis-generator.version>1.3.7</mybatis-generator.version>
-    <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
+    <mysql-connector-java.version>5.1.48</mysql-connector-java.version>
+    <mybatis.version>3.5.3</mybatis.version>
+    <mybatis-generator.version>1.4.0</mybatis-generator.version>
+    <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
     <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
-    <guava.version>28.0-jre</guava.version>
+    <guava.version>28.1-jre</guava.version>
+    <caffeine.version>2.8.0</caffeine.version>
     <jjwt.version>0.10.7</jjwt.version>
     <typetools.version>0.6.1</typetools.version>
-    <okhttp.version>3.14.2</okhttp.version>
-    <joda-time.version>2.10.3</joda-time.version>
-    <apache-httpclient.version>4.5.9</apache-httpclient.version>
+    <okhttp.version>4.2.2</okhttp.version>
+    <joda-time.version>2.10.5</joda-time.version>
+    <apache-httpclient.version>4.5.10</apache-httpclient.version>
     <jodd.version>5.0.13</jodd.version>
     <servlet-api.version>4.0.1</servlet-api.version>
     <vavr.version>0.10.2</vavr.version>
     <bouncycastle.version>1.60</bouncycastle.version>
+    <hazelcast.version>3.12.4</hazelcast.version>
   </properties>
 
   <build>
@@ -311,6 +314,7 @@
             <failOnViolation>false</failOnViolation>
             <failsOnError>false</failsOnError>
             <linkXRef>false</linkXRef>
+            <!--<includeTestSourceDirectory>true</includeTestSourceDirectory>-->
             <!--<propertesLocation>${checkstyle.config.dir}/checkstyle.properties</propertesLocation>-->
             <propertyExpansion>checkstyleConfigDir=${checkstyle.config.dir}</propertyExpansion>
             <configLocation>${checkstyle.config.location}</configLocation>
@@ -744,6 +748,16 @@
         <version>${guava.version}</version>
       </dependency>
       <dependency>
+        <groupId>com.github.ben-manes.caffeine</groupId>
+        <artifactId>caffeine</artifactId>
+        <version>${caffeine.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.ben-manes.caffeine</groupId>
+        <artifactId>guava</artifactId>
+        <version>${caffeine.version}</version>
+      </dependency>
+      <dependency>
         <groupId>io.jsonwebtoken</groupId>
         <artifactId>jjwt-api</artifactId>
         <version>${jjwt.version}</version>
@@ -813,6 +827,11 @@
         <groupId>io.vavr</groupId>
         <artifactId>vavr</artifactId>
         <version>${vavr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.hazelcast</groupId>
+        <artifactId>hazelcast</artifactId>
+        <version>${hazelcast.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

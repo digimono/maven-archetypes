@@ -5,6 +5,12 @@ spring:
   profiles:
     active: ${activeProfile}
 
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+
   aop:
     proxy-target-class: true
 
