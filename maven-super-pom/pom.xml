@@ -19,17 +19,19 @@
     <main.basedir>${project.basedir}/..</main.basedir>
 
     <java.version>1.8</java.version>
+
     <required.maven.version>3.5.4</required.maven.version>
-    <required.java.version>1.8</required.java.version>
+    <required.java.version>${java.version}</required.java.version>
+
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.compiler.release>${java.version}</maven.compiler.release>
+    <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.resourcesEncoding>UTF-8</project.build.resourcesEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-    <maven.compiler.source>${java.version}</maven.compiler.source>
-    <maven.compiler.target>${java.version}</maven.compiler.target>
-    <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <!-- Maven Plugins -->
     <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
@@ -155,6 +157,7 @@
           <configuration>
             <source>${maven.compiler.source}</source>
             <target>${maven.compiler.target}</target>
+            <!--<release>${maven.compiler.release}</release>-->
             <encoding>${project.build.sourceEncoding}</encoding>
           </configuration>
         </plugin>
