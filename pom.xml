@@ -116,6 +116,7 @@
 
   <modules>
     <module>maven-super-pom</module>
+    <module>maven-super-pom-with-kotlin</module>
     <module>maven-application-archetype</module>
     <module>maven-library-archetype</module>
     <module>maven-multi-module-archetype</module>
