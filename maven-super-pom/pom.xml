@@ -67,7 +67,7 @@
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
 
     <!-- Maven Plugin Dependency Versions -->
-    <checkstyle.version>8.26</checkstyle.version>
+    <checkstyle.version>8.29</checkstyle.version>
 
     <!-- https://spotbugs.readthedocs.io/en/stable/index.html -->
     <spotbugs.version>3.1.12</spotbugs.version>
