@@ -134,7 +134,7 @@
     <mybatis-generator.version>1.4.0</mybatis-generator.version>
     <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
     <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
-    <guava.version>28.1-jre</guava.version>
+    <guava.version>29.0-jre</guava.version>
     <caffeine.version>2.8.0</caffeine.version>
     <jjwt.version>0.10.7</jjwt.version>
     <typetools.version>0.6.1</typetools.version>
