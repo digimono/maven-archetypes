@@ -140,7 +140,7 @@
     <typetools.version>0.6.1</typetools.version>
     <okhttp.version>4.2.2</okhttp.version>
     <joda-time.version>2.10.5</joda-time.version>
-    <apache-httpclient.version>4.5.10</apache-httpclient.version>
+    <apache-httpclient.version>4.5.13</apache-httpclient.version>
     <jodd.version>5.0.13</jodd.version>
     <servlet-api.version>4.0.1</servlet-api.version>
     <vavr.version>0.10.2</vavr.version>
