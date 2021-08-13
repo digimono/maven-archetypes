@@ -144,7 +144,7 @@
     <jodd.version>5.0.13</jodd.version>
     <servlet-api.version>4.0.1</servlet-api.version>
     <vavr.version>0.10.2</vavr.version>
-    <bouncycastle.version>1.60</bouncycastle.version>
+    <bouncycastle.version>1.67</bouncycastle.version>
     <hazelcast.version>3.12.4</hazelcast.version>
     <lombok.version>1.18.10</lombok.version>
   </properties>
