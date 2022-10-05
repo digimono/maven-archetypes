@@ -102,7 +102,7 @@
     <spring-boot.version>2.2.1.RELEASE</spring-boot.version>
     <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
     <spring-retry.version>1.2.4.RELEASE</spring-retry.version>
-    <jackson.version>2.10.0</jackson.version>
+    <jackson.version>2.12.6.1</jackson.version>
     <jackson-databind.version>2.10.0</jackson-databind.version>
     <hikaricp.version>3.4.1</hikaricp.version>
 
